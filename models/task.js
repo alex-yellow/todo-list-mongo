@@ -11,6 +11,7 @@ const taskSchema = mongoose.Schema({
     }
 });
 
-const Task = mongoose.model('Task', taskSchema);
+// Указываем явное имя коллекции "tasks" в базе данных "todos"
+const Task = mongoose.model('Task', taskSchema, 'tasks');
 
 module.exports = Task;

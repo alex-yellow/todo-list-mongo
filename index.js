@@ -15,7 +15,7 @@ app.set('view engine', 'hbs');
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
-// app.use(taskController);
+app.use(taskController);
 
 async function start()
 {

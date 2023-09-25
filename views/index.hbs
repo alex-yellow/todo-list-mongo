@@ -1,0 +1,30 @@
+<h1>Tasks</h1>
+<h2><a href="/create">Add Task</a></h2>
+<table>
+    <thead>
+        <th>Task</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tbody>
+        {{#each tasks}}
+            <tr>
+                <td style="{{#if completed}}text-decoration:line-through{{/if}}">{{title}}</td>
+                <td>
+                    <form action="/complete" method="post">
+                        <input type="hidden" name="id" value="{{_id}}">
+                        <button type="submit">{{#if completed}}Uncomplete{{else}}Complete{{/if}}</button>
+                    </form>
+                </td>
+                <td><a href="/edit/{{_id}}">Edit</a></td>
+                <td>
+                    <form action="/delete" method="post">
+                        <input type="hidden" name="id" value="{{_id}}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
